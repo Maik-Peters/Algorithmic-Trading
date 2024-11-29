@@ -1,70 +1,72 @@
-# DeepTrade: Deep Learning für Algorithmisches Trading
+# **DeepTrade: Deep Learning für Algorithmisches Trading**
 
-## 1. Allgemeine Beschreibung
+## **Allgemeine Beschreibung**
 
-**DeepTrade** ist ein Projekt, das die Anwendung von **Deep Learning** im Bereich des **algorithmischen Handels** für Aktien und Kryptowährungen untersucht. Algorithmischer Handel nutzt computergestützte Modelle und Algorithmen, um Finanzmärkte zu analysieren und automatisiert Handelsentscheidungen zu treffen. Das Ziel von DeepTrade ist es, Modelle des maschinellen Lernens zu entwickeln, die historische Marktdaten analysieren und Vorhersagen für zukünftige Preisbewegungen treffen können.
+**DeepTrade** ist ein Deep-Learning-Projekt, das sich mit algorithmischem Trading befasst. Ziel ist es, präzise Vorhersagen von Aktien- und Kryptowährungskursen basierend auf historischen Daten zu treffen. Es kombiniert bewährte Zeitreihenmodelle wie LSTMs (Long Short-Term Memory) mit fortschrittlichen Mechanismen wie Attention-Layern und Multi-Input-Architekturen. 
 
-In diesem Projekt werden **LSTM (Long Short-Term Memory)** Modelle und fortgeschrittene **Attention-Mechanismen** verwendet, um Zeitreihenanalysen durchzuführen und Marktbewegungen vorherzusagen. Zwei Experimente werden durchgeführt, um verschiedene Ansätze für den Handel mit Aktien und Kryptowährungen zu untersuchen.
+Das Projekt ist in zwei Experimente gegliedert:
+1. **Experiment 1** untersucht die Grundlagen der Kursvorhersage mit einem einfachen LSTM-Modell.
+2. **Experiment 2** erweitert diese Ansätze mit einem Attention-Mechanismus und einem Multi-Input-Framework, um Daten aus mehreren Märkten zu kombinieren.
 
-## 2. Ziel des Projekts
-
-Das Hauptziel dieses Projekts ist es, die Leistungsfähigkeit von Deep Learning-Algorithmen im Kontext des algorithmischen Handels zu demonstrieren. Das Projekt verfolgt dabei folgende spezifische Ziele:
-
-- Entwicklung eines **LSTM-Modells** zur Vorhersage von Preisbewegungen auf Basis historischer Marktdaten.
-- Untersuchung des Einflusses eines **Attention-Mechanismus** auf die Modellleistung.
-- Analyse der Leistung von **multi-input LSTM-Modellen**, die mehrere Aktien oder Finanzinstrumente gleichzeitig berücksichtigen.
-- Vergleich der Performance der entwickelten Modelle anhand von **Performance-Metriken** wie MSE (Mean Squared Error) und R² (Bestimmtheitsmaß).
-
-Das Projekt bietet einen praktischen Ansatz, um zu verstehen, wie Deep Learning-Modelle auf Finanzmärkte angewendet werden können, und liefert wertvolle Erkenntnisse darüber, welche Modellarchitekturen für algorithmischen Handel am effektivsten sind.
-
-## 3. Zusammenfassung der Experimente
-
-### Experiment 1: LSTM-Modell für Aktienvorhersage
-
-**Ziel**: In Experiment 1 wurde ein einfaches **LSTM-Modell** entwickelt, das historische Daten einer einzelnen Aktie (z.B. **Apple Inc. (AAPL)**) verwendet, um zukünftige **Close-Preise** vorherzusagen.
-
-- **Datenakquise**: Historische Daten wurden von der **Alpaca API** heruntergeladen.
-- **Datenvorverarbeitung**: Die `Close`-Preisdaten wurden extrahiert und mit dem **MinMaxScaler** auf den Bereich [0, 1] skaliert.
-- **Modell**: Ein einfaches LSTM-Modell wurde trainiert, um die zukünftigen Preisbewegungen der Aktie vorherzusagen.
-- **Ergebnisse**: Das Modell konnte die Preisentwicklung auf Basis der historischen Daten nachbilden, jedoch mit einer begrenzten Vorhersagegenauigkeit. Die Performance-Metriken MSE und R² wurden zur Bewertung der Modellgenauigkeit verwendet.
-
-### Experiment 2: Multi-Input LSTM mit Attention-Mechanismus
-
-**Ziel**: In Experiment 2 wurde ein erweitertes Modell entwickelt, das mehrere Aktien gleichzeitig berücksichtigt. Hierbei kam ein **multi-input LSTM-Modell** zum Einsatz, das mehrere Eingabedaten wie **AAPL**, **Microsoft (MSFT)** und **SPY** kombiniert. Zusätzlich wurde ein **Attention-Mechanismus** integriert, um den Fokus des Modells auf besonders wichtige Zeitpunkte in den Daten zu lenken.
-
-- **Datenakquise**: Historische Daten von mehreren Aktien und dem **SPY-Index** wurden heruntergeladen.
-- **Datenvorverarbeitung**: Ähnlich wie in Experiment 1 wurden die `Close`-Preise skaliert und für alle Ticker vorbereitet.
-- **Modell**: Das Modell verwendet mehrere Eingabeschichten (einen für jede Aktie) und kombiniert deren Ausgaben mithilfe von LSTM-Schichten. Ein **Attention-Mechanismus** wurde verwendet, um die Aufmerksamkeit auf relevante Datenpunkte zu lenken, die für die Vorhersage entscheidend sind.
-- **Ergebnisse**: Die Ergebnisse aus Experiment 2 zeigen eine verbesserte Leistung im Vergleich zu Experiment 1, insbesondere bei der Berücksichtigung mehrerer Finanzinstrumente gleichzeitig. Der Attention-Mechanismus trug zur Verbesserung der Modellgenauigkeit bei, indem er das Modell auf relevante Zeitpunkte fokussierte.
-
-## 4. Ergebnisse und Performance
-
-### Experiment 1 (LSTM-Modell)
-- **MSE (Mean Squared Error)**: 0.0012
-- **R² (Bestimmtheitsmaß)**: 0.87
-- **Visualisierung des Trainingsverlusts**: Der Trainingsverlust zeigte eine stetige Reduzierung während des Trainingsprozesses, was auf eine erfolgreiche Modellanpassung hinweist.
-
-### Experiment 2 (Multi-Input LSTM mit Attention)
-- **MSE (Mean Squared Error)**: 0.0009
-- **R² (Bestimmtheitsmaß)**: 0.92
-- **Visualisierung der Attention-Gewichte**: Die Visualisierungen der Attention-Gewichte zeigten, dass das Modell besonders auf bestimmte Zeiträume und Ereignisse in den Finanzdaten fokussierte, was die Vorhersagegenauigkeit verbesserte.
-- **Vorhersagen vs. Tatsächliche Werte**: Die Vorhersagen für die Aktienkurse waren genauer als in Experiment 1, was den Vorteil eines multi-input Modells und des Attention-Mechanismus unterstrich.
-
-## 5. Fazit und Ausblick
-
-Das Projekt **DeepTrade** hat gezeigt, dass Deep Learning, insbesondere LSTM-Modelle, ein vielversprechendes Werkzeug für den algorithmischen Handel darstellen. Experiment 2 hat zudem gezeigt, dass die Erweiterung des Modells mit mehreren Eingabedaten und einem Attention-Mechanismus die Leistung des Modells signifikant verbessert. 
-
-Für zukünftige Arbeiten könnten verschiedene erweiterte Modelle, wie **Transformer-basierte Architekturen** oder **Reinforcement Learning**, untersucht werden, um die Handelsstrategien weiter zu optimieren und noch genauere Vorhersagen zu ermöglichen. 
-
-Ein weiteres potenzielles Ziel ist die Integration von **Echtzeit-Marktdaten** und der Aufbau eines Systems, das in der Lage ist, live Handelssignale zu generieren.
-
-## 6. Verwendung der Modelle und Code
-
-Alle verwendeten Modelle, Skripte und Ergebnisse sind im Repository enthalten und können zur weiteren Forschung und Entwicklung im Bereich des algorithmischen Handels verwendet werden. Bitte beachtet die Lizenzbedingungen und stellt sicher, dass ihr die **Alpaca API** oder eine andere geeignete API verwendet, um Echtzeit-Daten zu beziehen, wenn ihr die Modelle für reale Handelsstrategien einsetzen möchtet.
+Die saubere Struktur des Projekts ermöglicht es, die einzelnen Komponenten unabhängig zu testen und zu verbessern.
 
 ---
 
-**Autor**: [Maik Peters] 
-**Matr.**: [585145]
-**Datum**: [29.11.2024]
+## **Ziel des Projekts**
 
+Das Hauptziel von **DeepTrade** ist es, robuste, skalierbare und interpretierbare Modelle für das algorithmische Trading zu entwickeln. Es fokussiert sich dabei auf:
+- **Vorhersagegenauigkeit**: Nutzung von Deep-Learning-Ansätzen, um Marktbewegungen präzise vorherzusagen.
+- **Modell interpretierbarkeit**: Anwendung von Attention-Mechanismen zur Hervorhebung relevanter Datenpunkte.
+- **Skalierbarkeit**: Entwicklung eines Frameworks, das auf verschiedene Märkte und Datenquellen ausgeweitet werden kann.
+
+---
+
+## **Zusammenfassung und Ergebnisse**
+
+### **Experiment 1: LSTM für Kursvorhersagen**
+
+#### **Beschreibung**
+In Experiment 1 wurde ein LSTM-Modell entwickelt, um die `Close`-Preise von Aktien basierend auf historischen Daten vorherzusagen. Als Datenquelle diente Yahoo Finance.
+
+#### **Vorgehensweise**
+1. **Datenakquise**: Historische `Close`-Preise von Apple (AAPL) wurden heruntergeladen und als `raw_data.csv` gespeichert.
+2. **Datenvorverarbeitung**: Die Daten wurden skaliert, um sie als Eingabe für das Modell nutzbar zu machen. Die vorverarbeiteten Daten wurden in `preprocessed_data.csv` gespeichert.
+3. **Modelltraining**: Ein LSTM-Modell mit einem 60-Tage-Zeitfenster wurde trainiert, um den nächsten Tagespreis vorherzusagen.
+
+#### **Ergebnisse**
+- **Training Loss**: Der Trainingsverlust zeigte eine schnelle Konvergenz.
+- **Vorhersagegenauigkeit**: Das Modell konnte die Kursverläufe moderat genau vorhersagen, wobei eine leichte Überanpassung auf die Trainingsdaten beobachtet wurde.
+- **Visualisierung**: Die Ergebnisse wurden grafisch dargestellt, einschließlich des Vergleichs zwischen tatsächlichen und vorhergesagten Werten.
+
+---
+
+### **Experiment 2: Multi-Input LSTM mit Attention**
+
+#### **Beschreibung**
+Experiment 2 erweiterte das grundlegende Modell durch:
+1. Einen **Attention-Mechanismus**, der relevante Zeitpunkte während der Vorhersagen hervorhebt.
+2. Ein **Multi-Input LSTM**, das Daten aus mehreren Märkten (AAPL, MSFT, SPY) simultan verarbeitet.
+
+#### **Vorgehensweise**
+1. **Datenakquise**: Historische `Close`-Preise für Apple (AAPL), Microsoft (MSFT) und den S&P 500 Index (SPY) wurden heruntergeladen.
+2. **Datenvorverarbeitung**: Die Daten jeder Aktie wurden individuell skaliert und in separaten Dateien (`AAPL_processed.csv`, `MSFT_processed.csv`, `SPY_processed.csv`) gespeichert.
+3. **Attention-Mechanismus**: Ein Attention-Layer wurde in das Modell integriert, um die Wichtigkeit einzelner Zeitpunkte zu berücksichtigen.
+4. **Multi-Input LSTM**: Ein LSTM-Modell, das alle drei Datenquellen kombiniert, wurde entwickelt und trainiert.
+
+#### **Ergebnisse**
+- **Attention Visualisierung**: Der Mechanismus hob Schlüsselzeiträume hervor, die für die Modellentscheidungen entscheidend waren.
+- **Vorhersagegenauigkeit**: Das Multi-Input-Modell zeigte eine signifikante Verbesserung der Vorhersagegenauigkeit im Vergleich zu Experiment 1.
+- **Multi-Markt-Korrelation**: Die Nutzung mehrerer Datenquellen (AAPL, MSFT, SPY) erlaubte es dem Modell, die Marktinteraktionen besser zu verstehen und zu nutzen.
+
+---
+
+## **Schlussfolgerungen und Ausblick**
+
+1. **LSTM-Modelle sind leistungsstark**, wenn es darum geht, zeitliche Muster in Marktdaten zu erkennen. 
+2. **Attention-Mechanismen erhöhen die Interpretierbarkeit** und erlauben es, Schlüsselmuster in den Daten zu identifizieren.
+3. **Multi-Input-Modelle bieten einen Vorteil**, wenn Daten aus verschiedenen Märkten oder Vermögenswerten integriert werden.
+
+### **Zukünftige Arbeiten**
+- **Echtzeit-Trading**: Implementierung von Vorhersagen und automatischen Trades in Echtzeit.
+- **Kryptowährungen**: Anwendung der Modelle auf volatile Märkte wie Bitcoin und Ethereum.
+- **Hyperparameteroptimierung**: Feinabstimmung der Modelle, um die Performance weiter zu steigern.
