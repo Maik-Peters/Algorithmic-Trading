@@ -11,8 +11,8 @@ In diesem Experiment wird ein einfaches LSTM-Modell entwickelt, um historische A
   - Historische Daten: Tagesbasierte OHLCV-Daten (Open, High, Low, Close, Volume).
   - Echtzeitdaten: Websockets für aktuelle Marktpreise.
 - **Skripte:**
-  - `data_acquisition.py` - Lädt historische Daten herunter und speichert sie in `Data/raw_data.csv`&#8203;:contentReference[oaicite:0]{index=0}.
-  - `realtime_streaming.py` - Ruft Echtzeitdaten ab und zeigt sie in der Konsole an&#8203;:contentReference[oaicite:1]{index=1}.
+  - `data_acquisition.py` - Lädt historische Daten herunter und speichert sie in `Data/raw_data.csv`.
+  - Echtzeitdaten werden in diesem Experiment nicht verwendet.
 
 ---
 
@@ -24,7 +24,7 @@ In diesem Experiment wird ein einfaches LSTM-Modell entwickelt, um historische A
      - **MACD (Moving Average Convergence Divergence):** Zeigt Markttrends an.
   3. **Fehlende Werte:** Werden mit `0` aufgefüllt.
 - **Skript:**
-  - `data_preprocessing.py` - Führt die Vorverarbeitung der Rohdaten durch und speichert sie in `Data/preprocessed_data.csv`&#8203;:contentReference[oaicite:2]{index=2}.
+  - `data_preprocessing.py` - Führt die Vorverarbeitung der Rohdaten durch und speichert sie in `Data/preprocessed_data.csv`.
 
 ---
 
@@ -32,10 +32,9 @@ In diesem Experiment wird ein einfaches LSTM-Modell entwickelt, um historische A
 Die wichtigsten Features und Zielgrößen sind:
 1. **Features:**
    - Open, High, Low, Close, Volume
-   - RSI, MACD, Signal
+   - RSI, MACD
 2. **Zielgröße:**
    - `Next Day Close`: Vorhergesagter Schlusskurs des nächsten Handelstags.
-
 
 ---
 
@@ -48,6 +47,18 @@ Die wichtigsten Features und Zielgrößen sind:
 - **Optimierer:** Adam mit einer Lernrate von 0.001.
 - **Verlustfunktion:** Mean Squared Error (MSE).
 - **Sequenzlänge:** 1 Tag (univariate Zeitreihe).
+
+---
+
+## **Ergebnisse**
+### **Trainings- und Testverluste**
+Der Trainingsverlust und der Testverlust zeigen eine Annäherung.
+
+#### **Visualisierung**
+Die erzeugte Grafik zeigt die Verlustkurven während des Trainings:
+
+### **Vorhersagen**
+Die gespeicherten Vorhersagen und tatsächlichen Werte befinden sich in der Datei `Results/predictions.csv`.
 
 ---
 
