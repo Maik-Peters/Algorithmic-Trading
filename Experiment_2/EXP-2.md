@@ -39,8 +39,6 @@ Die wichtigsten Features und Zielgrößen sind:
 3. **Zielgröße:**
    - `AAPL Close`: Vorhergesagter Schlusskurs des nächsten Handelstags.
 
-Weitere Details finden sich in der Datei `features.json`.
-
 ---
 
 ## **Modellarchitektur**
@@ -54,6 +52,18 @@ Weitere Details finden sich in der Datei `features.json`.
   - Fully Connected Layer kombiniert die Ausgaben der LSTMs.
 - **Optimierer:** Adam mit einer Lernrate von 0.001.
 - **Verlustfunktion:** Mean Squared Error (MSE).
+
+---
+
+## **Ergebnisse**
+### **Trainings- und Testverluste**
+Der Trainingsverlust und der Testverlust zeigen die Leistung des Modells während des Trainings.
+
+#### **Visualisierung**
+Die erzeugte Grafik zeigt die Verlustkurven während des Trainings.
+
+### **Vorhersagen**
+Die gespeicherten Vorhersagen und tatsächlichen Werte befinden sich in der Datei `Results/predictions.csv`.
 
 ---
 
