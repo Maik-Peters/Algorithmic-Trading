@@ -8,8 +8,6 @@ Das Projekt ist in zwei Experimente gegliedert:
 1. **Experiment 1** untersucht die Grundlagen der Kursvorhersage mit einem einfachen LSTM-Modell.
 2. **Experiment 2** erweitert diese Ansätze mit einem Attention-Mechanismus und einem Multi-Input-Framework, um Daten aus mehreren Märkten zu kombinieren.
 
-Die saubere Struktur des Projekts ermöglicht es, die einzelnen Komponenten unabhängig zu testen und zu verbessern.
-
 ---
 
 ## **Ziel des Projekts**
@@ -26,7 +24,7 @@ Das Hauptziel von **DeepTrade** ist es, robuste, skalierbare und interpretierbar
 ### **Experiment 1: LSTM für Kursvorhersagen**
 
 #### **Beschreibung**
-In Experiment 1 wurde ein LSTM-Modell entwickelt, um die `Close`-Preise von Aktien basierend auf historischen Daten vorherzusagen. Als Datenquelle diente Yahoo Finance.
+In Experiment 1 wurde ein LSTM-Modell entwickelt, um die `Close`-Preise von Aktien basierend auf historischen Daten vorherzusagen. Als Datenquelle diente Alpaca API.
 
 #### **Vorgehensweise**
 1. **Datenakquise**: Historische `Close`-Preise von Apple (AAPL) wurden heruntergeladen und als `raw_data.csv` gespeichert.
@@ -49,7 +47,7 @@ Experiment 2 erweiterte das grundlegende Modell durch:
 
 #### **Vorgehensweise**
 1. **Datenakquise**: Historische `Close`-Preise für Apple (AAPL), Microsoft (MSFT) und den S&P 500 Index (SPY) wurden heruntergeladen.
-2. **Datenvorverarbeitung**: Die Daten jeder Aktie wurden individuell skaliert und in separaten Dateien (`AAPL_processed.csv`, `MSFT_processed.csv`, `SPY_processed.csv`) gespeichert.
+2. **Datenvorverarbeitung**: Die Daten jeder Aktie wurden individuell skaliert und in einer Datei (`preprocessed_data.csv`) gespeichert.
 3. **Attention-Mechanismus**: Ein Attention-Layer wurde in das Modell integriert, um die Wichtigkeit einzelner Zeitpunkte zu berücksichtigen.
 4. **Multi-Input LSTM**: Ein LSTM-Modell, das alle drei Datenquellen kombiniert, wurde entwickelt und trainiert.
 
